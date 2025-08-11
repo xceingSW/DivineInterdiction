@@ -1,0 +1,4 @@
+name: DivineInterdiction
+version: '1.0-SNAPSHOT'
+main: me.xceing.divineInterdiction.DivineInterdiction
+api-version: '1.21'

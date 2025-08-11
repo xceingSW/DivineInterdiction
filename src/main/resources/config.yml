@@ -1,0 +1,44 @@
+# Settings for The Godsthief's Halo
+The godsthief halo:
+  # The effect range to look for players with the correct gamemode
+  Effect-Range: 20
+  # The effects that will be given to the player for each person with the correct gamemode around them
+  # TODO: overkill setting where the player dies when too many players in the correct gamemode are nearby
+  # TODO: Mimics the overloading of godly powers
+  # TODO: Round Robin effect where it will give 1 of each effect before upgrading
+  Effect-Types:
+    - haste
+    - fire_resistance
+    - dolphins_grace
+    - speed
+    - absorption
+    - regeneration
+    - saturation
+    - health_boost
+    - strength
+    - resistance
+  # The maximum level each effect can reach before moving to the next effect
+  Effect-Max-Amplifier:
+    - 3
+    - 0
+    - 2
+    - 4
+    - 4
+    - 4
+    - 1
+    - 4
+    - 4
+    - 3
+  # Which gamemode the surrounding players must be in to trigger the effect
+  Effected-Gamemodes:
+    - CREATIVE
+    - SPECTATOR
+
+# Settings for Severer Of Immortality
+Severer of immortality:
+  # Which gamemode the target must be in to trigger the effect
+  Effected-Gamemodes:
+    - CREATIVE
+    - SPECTATOR
+  # Which gamemode the target will turn into
+  Effect-Gamemode: SURVIVAL
