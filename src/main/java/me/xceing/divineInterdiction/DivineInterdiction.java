@@ -1,5 +1,7 @@
 package me.xceing.divineInterdiction;
 
+import com.github.retrooper.packetevents.PacketEvents;
+import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -10,7 +12,12 @@ public final class DivineInterdiction extends JavaPlugin {
     public static DivineInterdiction getInstance(){
         return instance;
     }
-
+    @Override
+    public void onLoad() {
+        PacketEvents.setAPI(SpigotPacketEventsBuilder.build(this));
+        //On Bukkit, calling this here is essential, hence the name "load"
+        PacketEvents.getAPI().load();
+    }
     @Override
     public void onEnable() {
         // Store the plugin instance

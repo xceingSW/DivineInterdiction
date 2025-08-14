@@ -19,12 +19,19 @@ repositories {
         name = "papermc-repo"
         url = uri("https://repo.papermc.io/repository/maven-public/")
     }
+    maven {
+        url = uri("https://repo.codemc.io/repository/maven-releases/")
+    }
+    maven {
+        url = uri("https://repo.codemc.io/repository/maven-snapshots/")
+    }
 }
 
 dependencies {
     // paper-api (scope provided in Maven)
     compileOnly 'io.papermc.paper:paper-api:1.21.8-R0.1-SNAPSHOT'
     paperweight.paperDevBundle("1.21.8-R0.1-SNAPSHOT")
+    compileOnly("com.github.retrooper:packetevents-spigot:2.9.3")
 }
 tasks.withType(JavaCompile).configureEach {
     options.encoding = 'UTF-8'
