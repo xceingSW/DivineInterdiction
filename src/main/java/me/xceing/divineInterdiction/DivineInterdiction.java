@@ -5,19 +5,18 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public final class DivineInterdiction extends JavaPlugin {
 
-    private static final DivineInterdiction instance = new DivineInterdiction();
+    private static DivineInterdiction instance;
 
     public static DivineInterdiction getInstance(){
         return instance;
     }
 
-    private DivineInterdiction(){
-    }
-
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        // Store the plugin instance
+        instance = this;
 
+        // Plugin startup logic
         ArtifactSettings.getInstance().load();
 
         this.getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, commands -> {
@@ -30,5 +29,4 @@ public final class DivineInterdiction extends JavaPlugin {
     public void onDisable() {
         // Plugin shutdown logic
     }
-
 }
