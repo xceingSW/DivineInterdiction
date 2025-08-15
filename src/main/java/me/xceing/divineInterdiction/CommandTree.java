@@ -10,6 +10,8 @@ import io.papermc.paper.command.brigadier.CommandSourceStack;
 import io.papermc.paper.command.brigadier.Commands;
 import io.papermc.paper.command.brigadier.argument.ArgumentTypes;
 import io.papermc.paper.command.brigadier.argument.resolvers.selector.PlayerSelectorArgumentResolver;
+import me.xceing.divineInterdiction.Effects.Effects;
+import me.xceing.divineInterdiction.Effects.Packets;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.HumanEntity;
 import org.bukkit.entity.Player;
@@ -53,7 +55,6 @@ public class CommandTree {
 
     private static LiteralArgumentBuilder<CommandSourceStack> getPacketCommand(){
         LiteralArgumentBuilder<CommandSourceStack> itemCommand = Commands.literal("packet");
-        Packets packets = new Packets();
 
         itemCommand.then(Commands.literal("sheep")
                 .then(Commands.argument(CommandArgument.TARGET_PLAYER_ARGUMENT.name(), ArgumentTypes.players())
@@ -62,7 +63,7 @@ public class CommandTree {
             PlayerSelectorArgumentResolver targetResolver = context.getArgument(CommandArgument.TARGET_PLAYER_ARGUMENT.name(), PlayerSelectorArgumentResolver.class);
             Iterable<Player> target = targetResolver.resolve(context.getSource());
             if (sender instanceof Player player) {
-                packets.sendSheep(target.iterator().next());
+                Packets.sendSheep(target.iterator().next());
             }
             return Command.SINGLE_SUCCESS;
         })));
@@ -71,9 +72,9 @@ public class CommandTree {
                         .executes(context -> {
             CommandSender sender = context.getSource().getSender();
             PlayerSelectorArgumentResolver targetResolver = context.getArgument(CommandArgument.TARGET_PLAYER_ARGUMENT.name(), PlayerSelectorArgumentResolver.class);
-            Iterable<Player> target = targetResolver.resolve(context.getSource());
+            Iterable<Player> targets = targetResolver.resolve(context.getSource());
             if (sender instanceof Player player) {
-                packets.sendEntityData(target.iterator().next(), player);
+                Effects.giveEagleVision(player, targets);
             }
             return Command.SINGLE_SUCCESS;
         })));

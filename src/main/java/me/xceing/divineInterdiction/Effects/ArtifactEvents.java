@@ -1,9 +1,9 @@
-package me.xceing.divineInterdiction;
+package me.xceing.divineInterdiction.Effects;
 
 import io.papermc.paper.event.player.PrePlayerAttackEntityEvent;
 import io.papermc.paper.persistence.PersistentDataContainerView;
-import org.apache.maven.artifact.Artifact;
-import org.bukkit.GameMode;
+import me.xceing.divineInterdiction.ArtifactSettings;
+import me.xceing.divineInterdiction.Artifacts;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

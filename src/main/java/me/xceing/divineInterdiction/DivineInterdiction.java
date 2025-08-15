@@ -3,6 +3,7 @@ package me.xceing.divineInterdiction;
 import com.github.retrooper.packetevents.PacketEvents;
 import io.github.retrooper.packetevents.factory.spigot.SpigotPacketEventsBuilder;
 import io.papermc.paper.plugin.lifecycle.event.types.LifecycleEvents;
+import me.xceing.divineInterdiction.Effects.ArtifactEvents;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class DivineInterdiction extends JavaPlugin {
