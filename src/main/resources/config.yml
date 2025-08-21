@@ -8,7 +8,7 @@ The godsthief halo:
   # TODO: Round Robin effect where it will give 1 of each effect before upgrading
   Effect-Types:
     - haste
-    - fire_resistance
+    - fire_resistance # TODO: Giving fire res does not give lava immunity but does give fire immunity
     - dolphins_grace
     - speed
     - absorption
