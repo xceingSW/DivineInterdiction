@@ -4,7 +4,7 @@
 *.iml
 *.ipr
 *.iws
-
+.gradle/
 # IntelliJ
 out/
 
