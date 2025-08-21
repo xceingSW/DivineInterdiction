@@ -19,6 +19,7 @@ import org.bukkit.craftbukkit.entity.CraftPlayer;
 import org.bukkit.entity.Player;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 public class Packets {
@@ -67,7 +68,7 @@ public class Packets {
         WrapperPlayServerEntityMetadata metadataPacket = new WrapperPlayServerEntityMetadata(entityId, meta);
         playerManager.sendPacket(receiver, metadataPacket);
     }
-    public static void sendGlowWithColour(List<Player> target, Player reciever, Alignment alignment){
+    public static void sendGlowWithColour(Collection<Player> target, Player reciever, Alignment alignment){
 
         ScoreBoardTeamInfo info = new ScoreBoardTeamInfo(
                 Component.text(alignment.name()),null,null,

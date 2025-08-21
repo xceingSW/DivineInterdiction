@@ -85,7 +85,11 @@ public class ArtifactSettings {
     public void setDefaults(){
         setDefaultsHalo();
         setDefaultsSeverer();
+        setDefaultEye();
         save();
+    }
+    private void setDefaultEye(){
+
     }
     private void setDefaultsHalo(){
         String keyNamespace = Artifacts.ArtifactList.THE_GODSTHIEF_HALO.getSimpleItemName();
@@ -106,6 +110,7 @@ public class ArtifactSettings {
     private void loadConfigValues(){
         loadConfigValuesHalo();
         loadConfigValuesSeverer();
+        loadConfigValuesEye();
     }
     private void loadConfigValuesHalo(){
         CROWN_OF_CHAINING_EFFECT_RANGE = (int) config.get(haloNamespace + ".Effect-Range");
@@ -121,5 +126,8 @@ public class ArtifactSettings {
         EFFECTED_GAMEMODES_SEVERER = ((List<String>)config.get(severerNamespace + ".Effected-Gamemodes")).stream().map(s -> GameMode.valueOf(s)).toList();
 
         EFFECT_GAMEMODE = GameMode.valueOf(config.get(severerNamespace + ".Effect-Gamemode").toString());
+    }
+    private void loadConfigValuesEye(){
+
     }
 }

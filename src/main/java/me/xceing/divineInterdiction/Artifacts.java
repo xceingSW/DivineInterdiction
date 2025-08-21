@@ -17,8 +17,8 @@ public class Artifacts {
     public enum ArtifactList
     {
         SEVERER_OF_IMMORTALITY(getDefaultSevererOfImmortality()),
-        THE_GODSTHIEF_HALO(getDefaultGodsthiefHalo())
-
+        THE_GODSTHIEF_HALO(getDefaultGodsthiefHalo()),
+        THE_VEIL_BREAKER_EYE(getDefaultVeilBreakerEye())
         ;
 
         ArtifactList(ItemStack item){
@@ -36,7 +36,28 @@ public class Artifacts {
            return artifact.clone();
         }
     }
+    private static ItemStack getDefaultVeilBreakerEye(){
+        Material itemType = Material.IRON_HELMET;
+        String displayName = "The veil breaker eye";
+        TextColor itemColor = NamedTextColor.RED;
 
+        Component LoreDescription = Component.text("The longer it is worn, one start to see things that should not exist.");
+        Component LoreQuote = Component.text("“Once you’ve seen the world through that eye, you’ll never trust your own again.” - Recovering cultist");
+        List<Component> lore = List.of(LoreDescription, LoreQuote);
+
+        Component effectComponent = Component.text(" x ").decorate(TextDecoration.OBFUSCATED);
+        Component displayNameComponent = Component.text(displayName).decoration(TextDecoration.OBFUSCATED,false);
+        Component fullNameComponent = effectComponent.append(displayNameComponent.append(effectComponent)).color(itemColor);
+
+        ItemStack SevererOfImmortality = new ItemStack(itemType);
+        ItemMeta meta = SevererOfImmortality.getItemMeta();
+
+        meta.lore(lore);
+        meta.customName(fullNameComponent);
+        SevererOfImmortality.setItemMeta(meta);
+
+        return SevererOfImmortality;
+    }
     private static ItemStack getDefaultGodsthiefHalo(){
         Material itemType = Material.DIAMOND_HELMET;
         String displayName = "The Godsthief’s Halo";

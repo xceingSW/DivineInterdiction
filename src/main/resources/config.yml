@@ -42,3 +42,9 @@ Severer of immortality:
     - SPECTATOR
   # Which gamemode the target will turn into
   Effect-Gamemode: SURVIVAL
+
+# The veil breaker eye:
+# TODO: Maybe add a range
+# TODO: Add a toggle
+# TODO: Illusions of fake players looking down and disappearing when close
+# TODO: Maybe add a resource pack that adds a blur overlay for everything besides players

@@ -8,12 +8,14 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerMoveEvent;
+import org.bukkit.event.player.PlayerSwapHandItemsEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
@@ -43,6 +45,24 @@ public class ArtifactEvents implements Listener {
         }
 
     }
+    @EventHandler
+    public void veilBreakerEyeEffect(PlayerSwapHandItemsEvent event){
+        Player player = event.getPlayer();
+        ItemStack item = player.getInventory().getItem(EquipmentSlot.HEAD);
+        PersistentDataContainerView pdc = item.getPersistentDataContainer();
+        if(!pdc.has(Artifacts.ARTIFACT_KEY)){
+            return;
+        }
+        String artifactKeyValue = pdc.get(Artifacts.ARTIFACT_KEY, PersistentDataType.STRING);
+        if(!artifactKeyValue.equals(Artifacts.ArtifactList.THE_VEIL_BREAKER_EYE.name())) {
+            return;
+        }
+        Collection<Player> players = player.getWorld().getPlayers();
+        Effects.giveEagleVision(player, players);
+
+
+    }
+
     @EventHandler
     public void chainingCrownEffect(PlayerMoveEvent event){ //TODO: edit this in a runnable so it runs every tick regardless of movement
         Player player = event.getPlayer();

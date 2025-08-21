@@ -18,7 +18,9 @@ import org.bukkit.entity.Player;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.StreamSupport;
 
 public class CommandTree {
 
@@ -74,7 +76,8 @@ public class CommandTree {
             PlayerSelectorArgumentResolver targetResolver = context.getArgument(CommandArgument.TARGET_PLAYER_ARGUMENT.name(), PlayerSelectorArgumentResolver.class);
             Iterable<Player> targets = targetResolver.resolve(context.getSource());
             if (sender instanceof Player player) {
-                Effects.giveEagleVision(player, targets);
+                List<Player> targetPlayerList = StreamSupport.stream(targets.spliterator(), false).toList();
+                Effects.giveEagleVision(player, targetPlayerList);
             }
             return Command.SINGLE_SUCCESS;
         })));
